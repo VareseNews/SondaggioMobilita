@@ -1,0 +1,43 @@
+name: Aggiorna dati mobilità
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"   # ogni 3 ore
+  workflow_dispatch:          # avvio manuale dal tab Actions
+  push:
+    branches: [ main ]
+    paths:
+      - "build.py"
+      - "index.html"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Genera data.json dal foglio pubblicato
+        run: python3 build.py
+
+      - name: Commit se ci sono novità
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data.json)" ]; then
+            git add data.json
+            git commit -m "Aggiornamento dati $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          else
+            echo "Nessuna variazione nei dati."
+          fi
