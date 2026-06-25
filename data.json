@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-25 19:10 UTC",
-  "total": 400,
+  "generated_at": "2026-06-25 21:50 UTC",
+  "total": 406,
   "small_sample_threshold": 15,
   "ages": [
     "Under 25",
@@ -14,8 +14,8 @@
     "Under 25": 16,
     "25-34": 44,
     "35-44": 79,
-    "45-54": 115,
-    "55-64": 116,
+    "45-54": 116,
+    "55-64": 121,
     "Over 65": 30
   },
   "charts": [
@@ -57,12 +57,12 @@
           "Sì, fuori provincia": 22,
           "Sì, in un'altra zona della provincia": 29,
           "No": 10,
-          "Sì, in Svizzera": 15
+          "Sì, in Svizzera": 16
         },
         "55-64": {
-          "Sì, in un comune vicino": 41,
-          "Sì, fuori provincia": 19,
-          "Sì, in un'altra zona della provincia": 25,
+          "Sì, in un comune vicino": 43,
+          "Sì, fuori provincia": 20,
+          "Sì, in un'altra zona della provincia": 27,
           "No": 27,
           "Sì, in Svizzera": 4
         },
@@ -125,7 +125,7 @@
           "Smart working prevalente": 0
         },
         "45-54": {
-          "Automobile": 66,
+          "Automobile": 67,
           "Treno": 20,
           "Bicicletta": 12,
           "Moto/scooter": 5,
@@ -136,9 +136,9 @@
           "Smart working prevalente": 0
         },
         "55-64": {
-          "Automobile": 64,
+          "Automobile": 68,
           "Treno": 11,
-          "Bicicletta": 16,
+          "Bicicletta": 17,
           "Moto/scooter": 5,
           "Autobus": 6,
           "A piedi": 6,
@@ -205,15 +205,15 @@
           "Sicurezza stradale": 26,
           "Ritardo dei treni": 15,
           "Nessun problema rilevante": 18,
-          "Mancanza di collegamenti": 2,
+          "Mancanza di collegamenti": 3,
           "Costi elevati": 5,
           "Ritardi degli autobus": 0
         },
         "55-64": {
-          "Traffico": 45,
+          "Traffico": 49,
           "Sicurezza stradale": 22,
           "Ritardo dei treni": 13,
-          "Nessun problema rilevante": 22,
+          "Nessun problema rilevante": 23,
           "Mancanza di collegamenti": 8,
           "Costi elevati": 2,
           "Ritardi degli autobus": 4
@@ -264,17 +264,17 @@
         },
         "45-54": {
           "1-2 giorni": 4,
-          "3 giorni": 13,
+          "3 giorni": 14,
           "4 giorni": 16,
           "5 giorni": 68,
           "Più di 5 giorni": 14
         },
         "55-64": {
-          "1-2 giorni": 1,
+          "1-2 giorni": 2,
           "3 giorni": 11,
-          "4 giorni": 11,
-          "5 giorni": 79,
-          "Più di 5 giorni": 14
+          "4 giorni": 12,
+          "5 giorni": 81,
+          "Più di 5 giorni": 15
         },
         "Over 65": {
           "1-2 giorni": 6,
@@ -322,15 +322,15 @@
           "Meno di 15 minuti": 24,
           "15-30 minuti": 35,
           "30-45 minuti": 21,
-          "45-60 minuti": 18,
+          "45-60 minuti": 19,
           "Oltre 60 minuti": 17
         },
         "55-64": {
           "Meno di 15 minuti": 27,
-          "15-30 minuti": 46,
-          "30-45 minuti": 17,
-          "45-60 minuti": 16,
-          "Oltre 60 minuti": 10
+          "15-30 minuti": 48,
+          "30-45 minuti": 18,
+          "45-60 minuti": 17,
+          "Oltre 60 minuti": 11
         },
         "Over 65": {
           "Meno di 15 minuti": 11,
@@ -384,15 +384,15 @@
           "10-20 km": 17,
           "20-40 km": 28,
           "Oltre 40 km": 22,
-          "Oltre 60 km": 23
+          "Oltre 60 km": 24
         },
         "55-64": {
           "Meno di 5 km": 17,
           "5-10 km": 14,
-          "10-20 km": 20,
-          "20-40 km": 32,
-          "Oltre 40 km": 17,
-          "Oltre 60 km": 16
+          "10-20 km": 22,
+          "20-40 km": 33,
+          "Oltre 40 km": 18,
+          "Oltre 60 km": 17
         },
         "Over 65": {
           "Meno di 5 km": 6,
