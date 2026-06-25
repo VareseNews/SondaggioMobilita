@@ -77,6 +77,294 @@
   .leg-name{color:var(--txt);flex:1;min-width:0}
   .leg-pct{font-weight:700;font-variant-numeric:tabular-nums}
 
+  footer{margin-top:22px;font-size:11.5px;color:var(--grigio);line-height:1.6}
+  footer a{color:var(--rosso)}
+  footer .upd{opacity:.8}
+  @media (max-width:380px){
+    h1{font-size:20px}
+    .col-lab{font-size:10.5px}
+    .cols{gap:5px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">L'inchiesta sulla mobilità</p>
+  <h1>Come ci muoviamo ogni giorno</h1>
+  <p class="intro">Le risposte di chi vive e si sposta sul territorio. Usa il filtro per età per vedere come cambiano le abitudini di spostamento.</p>
+
+  <div class="filter">
+    <div class="filter-lab">Filtra per fascia d'età</div>
+    <div class="pills" id="pills"></div>
+    <div class="badge" id="badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a2020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+      <span>Campione ridotto: questa fascia raccoglie poche risposte, leggi le percentuali con cautela.</span>
+    </div>
+  </div>
+
+  <div id="charts"></div>
+
+  <footer>
+    Fonte: sondaggio VareseNews sulla mobilità<br>
+    <span class="upd">Ultimo aggiornamento dei dati: <span id="upd">—</span></span>
+  </footer>
+</div>
+
+<script>
+const ALL = "Tutte le fasce d'età";
+let DATA = null, current = ALL;
+
+const $ = (s,el=document)=>el.querySelector(s);
+const ce = (t,c)=>{const e=document.createElement(t); if(c)e.className=c; return e;};
+const pct = (n,d)=> d>0 ? Math.round(n/d*100) : 0;
+
+function subsetCounts(chart){
+  // somma i conteggi sulla fascia selezionata (o su tutte)
+  const cats = chart.categories;
+  const res = Object.fromEntries(cats.map(c=>[c,0]));
+  const ages = current===ALL ? DATA.ages : [current];
+  for(const a of ages){
+    const m = chart.by_age[a]||{};
+    for(const c of cats) res[c]+=(m[c]||0);
+  }
+  const tot = Object.values(res).reduce((a,b)=>a+b,0);
+  return {res, tot, cats};
+}
+
+function renderBars(chart){
+  const {res,tot,cats} = subsetCounts(chart);
+  const max = Math.max(1, ...cats.map(c=>res[c]));
+  const box = ce('div');
+  for(const c of cats){
+    const p = pct(res[c],tot);
+    const row = ce('div','bar-row');
+    const top = ce('div','bar-top');
+    const name = ce('div','bar-name'); name.textContent=c;
+    const val = ce('div','bar-pct'); val.textContent=p+'%';
+    top.append(name,val);
+    const track = ce('div','bar-track');
+    const fill = ce('div','bar-fill');
+    requestAnimationFrame(()=>{ fill.style.width = (res[c]/max*100)+'%'; });
+    track.append(fill);
+    row.append(top,track);
+    box.append(row);
+  }
+  return box;
+}
+
+function renderColumns(chart){
+  const {res,tot,cats} = subsetCounts(chart);
+  const max = Math.max(1, ...cats.map(c=>res[c]));
+  const box = ce('div','cols');
+  for(const c of cats){
+    const p = pct(res[c],tot);
+    const col = ce('div','col');
+    const v = ce('div','col-pct'); v.textContent=p+'%';
+    const bar = ce('div','col-bar');
+    requestAnimationFrame(()=>{ bar.style.height = (res[c]/max*100)+'%'; });
+    const lab = ce('div','col-lab'); lab.textContent=c;
+    col.append(v,bar,lab);
+    box.append(col);
+  }
+  return box;
+}
+
+function renderDonut(chart){
+  const {res,tot,cats} = subsetCounts(chart);
+  // colori: "No" grigio, i "Sì" in gradazioni di rosso (dal più frequente)
+  const reds=['var(--r2)','var(--r1)','var(--r3)','var(--r4)','var(--r5)'];
+  const sorted=[...cats].sort((a,b)=>res[b]-res[a]);
+  const color={}; let ri=0;
+  for(const c of sorted){ color[c] = /^no$/i.test(c.trim()) ? 'var(--grigio)' : reds[ri++ % reds.length]; }
+
+  const wrap = ce('div','donut-wrap');
+  const NS='http://www.w3.org/2000/svg';
+  const size=190, r=70, cx=size/2, cy=size/2, C=2*Math.PI*r;
+  const svg=document.createElementNS(NS,'svg');
+  svg.setAttribute('viewBox',`0 0 ${size} ${size}`);
+  svg.setAttribute('width',size); svg.setAttribute('height',size);
+  const GAP = 3; // separatore bianco (px lungo la circonferenza)
+  let off=0;
+  for(const c of cats){
+    const frac = tot>0 ? res[c]/tot : 0;
+    if(frac<=0) continue;
+    const seg=document.createElementNS(NS,'circle');
+    seg.setAttribute('class','donut-seg');
+    seg.setAttribute('cx',cx); seg.setAttribute('cy',cy); seg.setAttribute('r',r);
+    seg.setAttribute('fill','none');
+    seg.setAttribute('stroke',color[c]);
+    seg.setAttribute('stroke-width',26);
+    const len=Math.max(frac*C-GAP, 1);
+    seg.setAttribute('stroke-dasharray',`${len} ${C-len}`);
+    seg.setAttribute('stroke-dashoffset',-off*C);
+    seg.setAttribute('transform',`rotate(-90 ${cx} ${cy})`);
+    off+=frac;
+    svg.appendChild(seg);
+  }
+  // dato centrale: % di chi esce dal comune (tutto ciò che non è "No")
+  const noCount = cats.filter(c=>/^no$/i.test(c.trim())).reduce((a,c)=>a+res[c],0);
+  const exit = pct(tot-noCount, tot);
+  const big=document.createElementNS(NS,'text');
+  big.setAttribute('x',cx); big.setAttribute('y',cy-2);
+  big.setAttribute('text-anchor','middle'); big.setAttribute('font-size','30');
+  big.setAttribute('font-weight','800'); big.setAttribute('fill','var(--rosso)');
+  big.textContent=exit+'%';
+  const sub=document.createElementNS(NS,'text');
+  sub.setAttribute('x',cx); sub.setAttribute('y',cy+16);
+  sub.setAttribute('text-anchor','middle'); sub.setAttribute('font-size','11.5');
+  sub.setAttribute('fill','var(--grigio)');
+  sub.textContent='esce dal comune';
+  svg.append(big,sub);
+
+  const dv=ce('div','donut'); dv.appendChild(svg);
+  const leg=ce('div','legend');
+  for(const c of cats){
+    const row=ce('div','leg-row');
+    const dot=ce('span','leg-dot'); dot.style.background=color[c];
+    const nm=ce('span','leg-name'); nm.textContent=c;
+    const pc=ce('span','leg-pct'); pc.textContent=pct(res[c],tot)+'%'; pc.style.color=color[c];
+    row.append(dot,nm,pc); leg.append(row);
+  }
+  wrap.append(dv,leg);
+  return wrap;
+}
+
+function render(){
+  const host=$('#charts'); host.innerHTML='';
+  for(const ch of DATA.charts){
+    const card=ce('div','card');
+    const h=ce('h2'); h.textContent=ch.title; card.append(h);
+    let body;
+    if(ch.type==='donut') body=renderDonut(ch);
+    else if(ch.type==='columns') body=renderColumns(ch);
+    else body=renderBars(ch);
+    card.append(body); host.append(card);
+  }
+  // badge campione ridotto
+  const small = current!==ALL && (DATA.age_count[current]||0) < DATA.small_sample_threshold;
+  $('#badge').classList.toggle('show', small);
+  postHeight();
+}
+
+function buildPills(){
+  const box=$('#pills'); box.innerHTML='';
+  const mk=(label)=>{
+    const b=ce('button','pill'); b.type='button'; b.textContent=label;
+    b.setAttribute('aria-pressed', String(label===current));
+    b.onclick=()=>{ current=label; [...box.children].forEach(p=>p.setAttribute('aria-pressed',String(p.textContent===current))); render(); };
+    box.append(b);
+  };
+  mk(ALL);
+  DATA.ages.forEach(mk);
+}
+
+function fmtUpd(s){
+  if(!s) return '—';
+  const iso = s.replace(' UTC','').replace(' ','T') + ':00Z'; // "2026-06-24 15:03 UTC" -> ISO
+  const d = new Date(iso);
+  if(isNaN(d)) return s;
+  return d.toLocaleString('it-IT',{day:'numeric',month:'long',year:'numeric',
+    hour:'2-digit',minute:'2-digit',timeZone:'Europe/Rome'});
+}
+
+function postHeight(){
+  const h=document.documentElement.scrollHeight;
+  parent.postMessage({type:'embed-size','embed-height':h, height:h}, '*'); // generico + iframe-resizer
+}
+window.addEventListener('resize', postHeight);
+
+fetch('data.json?_=' + Date.now())
+  .then(r=>r.json())
+  .then(d=>{
+    DATA=d;
+    $('#upd').textContent = fmtUpd(d.generated_at);
+    buildPills();
+    render();
+    setTimeout(postHeight, 600); // dopo le animazioni
+  })
+  .catch(e=>{ $('#charts').innerHTML='<p style="color:#8a2020">Impossibile caricare i dati.</p>'; });
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Come ci muoviamo — l'inchiesta sulla mobilità</title>
+<style>
+  :root{
+    --rosso:#A02626;
+    --grigio:#5f6566;
+    --bg:#FFFFFF;
+    --track:#eceef0;
+    --line:#e2e5e8;
+    --txt:#2b2f31;
+    /* gradazioni di rosso ben distanziate in luminosità */
+    --r1:#5e1010; --r2:#A02626; --r3:#cf6363; --r4:#e7a0a0; --r5:#f2c8c8;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg)}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--txt);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.4;
+  }
+  .wrap{max-width:600px;margin:0 auto;padding:18px 14px 28px}
+  .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--rosso);font-weight:700;margin:0 0 4px}
+  h1{font-size:23px;line-height:1.2;margin:0 0 6px;color:var(--txt)}
+  .intro{font-size:14px;color:var(--grigio);margin:0 0 18px}
+
+  /* ---- filtro ---- */
+  .filter{position:sticky;top:0;z-index:5;background:var(--bg);
+    padding:10px 0 10px;border-bottom:1px solid var(--line);margin-bottom:6px}
+  .filter-lab{font-size:12px;font-weight:700;color:var(--grigio);
+    text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+  .pills{display:flex;flex-wrap:wrap;gap:6px}
+  .pill{font:inherit;font-size:13px;cursor:pointer;border:1px solid var(--line);
+    background:#fff;color:var(--grigio);padding:6px 12px;border-radius:999px;
+    transition:all .12s ease;white-space:nowrap}
+  .pill:hover{border-color:var(--rosso);color:var(--rosso)}
+  .pill[aria-pressed="true"]{background:var(--rosso);border-color:var(--rosso);color:#fff;font-weight:600}
+
+  .badge{display:none;align-items:center;gap:8px;background:#fdf3f3;
+    border:1px solid #f0d4d4;color:#8a2020;border-radius:8px;
+    padding:9px 12px;font-size:13px;margin:12px 0 0}
+  .badge.show{display:flex}
+  .badge svg{flex:0 0 auto}
+
+  /* ---- card grafico ---- */
+  .card{padding:20px 0 6px;border-bottom:1px solid var(--line)}
+  .card:last-child{border-bottom:none}
+  .card h2{font-size:16px;line-height:1.3;margin:0 0 16px;color:var(--txt)}
+
+  /* barre orizzontali */
+  .bar-row{margin-bottom:13px}
+  .bar-row:last-child{margin-bottom:0}
+  .bar-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:4px}
+  .bar-name{font-size:13.5px;color:var(--txt)}
+  .bar-pct{font-size:13.5px;font-weight:700;color:var(--rosso);font-variant-numeric:tabular-nums}
+  .bar-track{height:10px;background:var(--track);border-radius:6px;overflow:hidden}
+  .bar-fill{height:100%;background:var(--rosso);border-radius:6px;width:0;transition:width .5s ease}
+
+  /* colonne verticali */
+  .cols{display:flex;align-items:flex-end;gap:8px;height:180px;padding-top:18px}
+  .col{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;min-width:0}
+  .col-pct{font-size:13px;font-weight:700;color:var(--rosso);margin-bottom:5px;font-variant-numeric:tabular-nums}
+  .col-bar{width:100%;max-width:46px;background:var(--rosso);border-radius:6px 6px 0 0;height:0;transition:height .5s ease}
+  .col-lab{font-size:11.5px;color:var(--grigio);text-align:center;margin-top:7px;line-height:1.2;hyphens:auto}
+
+  /* donut */
+  .donut-wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .donut svg{display:block}
+  .donut-seg{transition:stroke-dasharray .5s ease}
+  .legend{width:100%;display:flex;flex-direction:column;gap:8px}
+  .leg-row{display:flex;align-items:center;gap:9px;font-size:13.5px}
+  .leg-dot{width:13px;height:13px;border-radius:3px;flex:0 0 auto}
+  .leg-name{color:var(--txt);flex:1;min-width:0}
+  .leg-pct{font-weight:700;font-variant-numeric:tabular-nums}
+
   footer{margin-top:22px;font-size:11.5px;color:var(--grigio);line-height:1.5}
   footer a{color:var(--rosso)}
   @media (max-width:380px){
