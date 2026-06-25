@@ -2,7 +2,7 @@ name: Aggiorna dati mobilità
 
 on:
   schedule:
-    - cron: "0 */3 * * *"   # ogni 3 ore
+    - cron: "7 * * * *"   # ogni ora, al minuto 7
   workflow_dispatch:          # avvio manuale dal tab Actions
   push:
     branches: [ main ]
