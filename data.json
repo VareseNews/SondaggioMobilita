@@ -87,13 +87,7 @@
         "Moto/scooter",
         "A piedi",
         "Bicicletta elettrica",
-        "Automobile con altre persone",
-        "Bicicletta ed auto",
-        "Per Varese treno + autobus, per busto treno + piedi oppure direttamente auto",
-        "AUTO-BICI",
-        "Battello",
-        "+ treno",
-        "Auto-moto-bicicletta"
+        "Automobile con altre persone"
       ],
       "by_age": {
         "Under 25": {
@@ -104,13 +98,7 @@
           "Moto/scooter": 0,
           "A piedi": 0,
           "Bicicletta elettrica": 1,
-          "Automobile con altre persone": 0,
-          "Bicicletta ed auto": 0,
-          "Per Varese treno + autobus, per busto treno + piedi oppure direttamente auto": 1,
-          "AUTO-BICI": 0,
-          "Battello": 0,
-          "+ treno": 0,
-          "Auto-moto-bicicletta": 0
+          "Automobile con altre persone": 0
         },
         "25-34": {
           "Automobile": 12,
@@ -120,13 +108,7 @@
           "Moto/scooter": 0,
           "A piedi": 0,
           "Bicicletta elettrica": 1,
-          "Automobile con altre persone": 0,
-          "Bicicletta ed auto": 0,
-          "Per Varese treno + autobus, per busto treno + piedi oppure direttamente auto": 0,
-          "AUTO-BICI": 0,
-          "Battello": 0,
-          "+ treno": 0,
-          "Auto-moto-bicicletta": 0
+          "Automobile con altre persone": 0
         },
         "35-44": {
           "Automobile": 23,
@@ -136,13 +118,7 @@
           "Moto/scooter": 2,
           "A piedi": 2,
           "Bicicletta elettrica": 1,
-          "Automobile con altre persone": 0,
-          "Bicicletta ed auto": 0,
-          "Per Varese treno + autobus, per busto treno + piedi oppure direttamente auto": 0,
-          "AUTO-BICI": 0,
-          "Battello": 1,
-          "+ treno": 0,
-          "Auto-moto-bicicletta": 0
+          "Automobile con altre persone": 0
         },
         "45-54": {
           "Automobile": 41,
@@ -152,13 +128,7 @@
           "Moto/scooter": 4,
           "A piedi": 2,
           "Bicicletta elettrica": 3,
-          "Automobile con altre persone": 0,
-          "Bicicletta ed auto": 0,
-          "Per Varese treno + autobus, per busto treno + piedi oppure direttamente auto": 0,
-          "AUTO-BICI": 1,
-          "Battello": 0,
-          "+ treno": 0,
-          "Auto-moto-bicicletta": 1
+          "Automobile con altre persone": 0
         },
         "55-64": {
           "Automobile": 40,
@@ -168,13 +138,7 @@
           "Moto/scooter": 3,
           "A piedi": 4,
           "Bicicletta elettrica": 2,
-          "Automobile con altre persone": 4,
-          "Bicicletta ed auto": 0,
-          "Per Varese treno + autobus, per busto treno + piedi oppure direttamente auto": 0,
-          "AUTO-BICI": 0,
-          "Battello": 0,
-          "+ treno": 1,
-          "Auto-moto-bicicletta": 0
+          "Automobile con altre persone": 4
         },
         "Over 65": {
           "Automobile": 4,
@@ -184,13 +148,7 @@
           "Moto/scooter": 1,
           "A piedi": 2,
           "Bicicletta elettrica": 0,
-          "Automobile con altre persone": 1,
-          "Bicicletta ed auto": 1,
-          "Per Varese treno + autobus, per busto treno + piedi oppure direttamente auto": 0,
-          "AUTO-BICI": 0,
-          "Battello": 0,
-          "+ treno": 0,
-          "Auto-moto-bicicletta": 0
+          "Automobile con altre persone": 1
         }
       }
     },
