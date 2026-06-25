@@ -42,7 +42,19 @@ CHARTS = [
     {"key": "C", "idx": COL_C, "type": "donut",
      "title": "Per andare a lavoro o a studiare esci dal tuo comune?"},
     {"key": "E", "idx": COL_E, "type": "bars",
-     "title": "Il mezzo che usi più spesso"},
+     "title": "Il mezzo che usi più spesso",
+     # solo queste risposte vengono conteggiate; la % è calcolata su questo sottoinsieme
+     "allow": [
+         "Automobile",
+         "Automobile con altre persone",
+         "Moto/scooter",
+         "Bicicletta",
+         "Bicicletta elettrica",
+         "Treno",
+         "Autobus",
+         "A piedi",
+         "Smart working prevalente",
+     ]},
     {"key": "N", "idx": COL_N, "type": "bars",
      "title": "Il problema principale negli spostamenti quotidiani"},
     {"key": "G", "idx": COL_G, "type": "columns",
@@ -84,6 +96,7 @@ def main():
     out_charts = []
     for ch in CHARTS:
         idx = ch["idx"]
+        allow = set(ch["allow"]) if ch.get("allow") else None
         # by_age[fascia][categoria] = conteggio
         by_age = defaultdict(lambda: defaultdict(int))
         totals = defaultdict(int)
@@ -92,6 +105,8 @@ def main():
             val = cell(r, idx)
             if not val or not age:
                 continue
+            if allow is not None and val not in allow:
+                continue  # esclusa dal conteggio e dal denominatore
             by_age[age][val] += 1
             totals[val] += 1
 
