@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-01 19:05 UTC",
-  "total": 769,
+  "generated_at": "2026-07-01 20:52 UTC",
+  "total": 775,
   "small_sample_threshold": 15,
   "ages": [
     "Under 25",
@@ -12,9 +12,9 @@
   ],
   "age_count": {
     "Under 25": 28,
-    "25-34": 89,
-    "35-44": 161,
-    "45-54": 223,
+    "25-34": 91,
+    "35-44": 163,
+    "45-54": 225,
     "55-64": 216,
     "Over 65": 52
   },
@@ -41,22 +41,22 @@
         "25-34": {
           "Sì, in un comune vicino": 18,
           "Sì, fuori provincia": 23,
-          "Sì, in un'altra zona della provincia": 18,
+          "Sì, in un'altra zona della provincia": 20,
           "No": 17,
           "Sì, in Svizzera": 13
         },
         "35-44": {
           "Sì, in un comune vicino": 35,
-          "Sì, fuori provincia": 50,
-          "Sì, in un'altra zona della provincia": 27,
+          "Sì, fuori provincia": 51,
+          "Sì, in un'altra zona della provincia": 28,
           "No": 23,
           "Sì, in Svizzera": 26
         },
         "45-54": {
           "Sì, in un comune vicino": 66,
           "Sì, fuori provincia": 52,
-          "Sì, in un'altra zona della provincia": 46,
-          "No": 26,
+          "Sì, in un'altra zona della provincia": 47,
+          "No": 27,
           "Sì, in Svizzera": 33
         },
         "55-64": {
@@ -103,7 +103,7 @@
           "Smart working prevalente": 0
         },
         "25-34": {
-          "Automobile": 45,
+          "Automobile": 47,
           "Treno": 26,
           "Bicicletta": 8,
           "Moto/scooter": 0,
@@ -114,8 +114,8 @@
           "Smart working prevalente": 0
         },
         "35-44": {
-          "Automobile": 81,
-          "Treno": 40,
+          "Automobile": 82,
+          "Treno": 41,
           "Bicicletta": 12,
           "Moto/scooter": 9,
           "A piedi": 7,
@@ -125,7 +125,7 @@
           "Smart working prevalente": 0
         },
         "45-54": {
-          "Automobile": 107,
+          "Automobile": 109,
           "Treno": 44,
           "Bicicletta": 33,
           "Moto/scooter": 10,
@@ -183,19 +183,19 @@
           "Ritardi degli autobus": 3
         },
         "25-34": {
-          "Traffico": 32,
+          "Traffico": 33,
           "Sicurezza stradale": 13,
           "Ritardo dei treni": 18,
           "Nessun problema rilevante": 11,
           "Mancanza di collegamenti": 8,
-          "Costi elevati": 6,
+          "Costi elevati": 7,
           "Ritardi degli autobus": 1
         },
         "35-44": {
           "Traffico": 69,
           "Sicurezza stradale": 33,
-          "Ritardo dei treni": 27,
-          "Nessun problema rilevante": 19,
+          "Ritardo dei treni": 28,
+          "Nessun problema rilevante": 20,
           "Mancanza di collegamenti": 7,
           "Costi elevati": 5,
           "Ritardi degli autobus": 1
@@ -204,7 +204,7 @@
           "Traffico": 89,
           "Sicurezza stradale": 51,
           "Ritardo dei treni": 38,
-          "Nessun problema rilevante": 32,
+          "Nessun problema rilevante": 34,
           "Mancanza di collegamenti": 6,
           "Costi elevati": 7,
           "Ritardi degli autobus": 0
@@ -252,21 +252,21 @@
           "1-2 giorni": 2,
           "3 giorni": 17,
           "4 giorni": 14,
-          "5 giorni": 49,
+          "5 giorni": 51,
           "Più di 5 giorni": 7
         },
         "35-44": {
           "1-2 giorni": 3,
           "3 giorni": 29,
-          "4 giorni": 20,
-          "5 giorni": 93,
+          "4 giorni": 21,
+          "5 giorni": 94,
           "Più di 5 giorni": 16
         },
         "45-54": {
           "1-2 giorni": 9,
           "3 giorni": 31,
           "4 giorni": 35,
-          "5 giorni": 121,
+          "5 giorni": 123,
           "Più di 5 giorni": 27
         },
         "55-64": {
@@ -307,20 +307,20 @@
         "25-34": {
           "Meno di 15 minuti": 17,
           "15-30 minuti": 23,
-          "30-45 minuti": 12,
-          "45-60 minuti": 15,
+          "30-45 minuti": 13,
+          "45-60 minuti": 16,
           "Oltre 60 minuti": 22
         },
         "35-44": {
           "Meno di 15 minuti": 26,
-          "15-30 minuti": 39,
+          "15-30 minuti": 40,
           "30-45 minuti": 28,
           "45-60 minuti": 34,
-          "Oltre 60 minuti": 34
+          "Oltre 60 minuti": 35
         },
         "45-54": {
           "Meno di 15 minuti": 49,
-          "15-30 minuti": 56,
+          "15-30 minuti": 58,
           "30-45 minuti": 36,
           "45-60 minuti": 32,
           "Oltre 60 minuti": 50
@@ -367,21 +367,21 @@
           "5-10 km": 10,
           "10-20 km": 14,
           "20-40 km": 21,
-          "Oltre 40 km": 12,
+          "Oltre 40 km": 14,
           "Oltre 60 km": 23
         },
         "35-44": {
           "Meno di 5 km": 13,
           "5-10 km": 13,
           "10-20 km": 24,
-          "20-40 km": 45,
+          "20-40 km": 46,
           "Oltre 40 km": 24,
-          "Oltre 60 km": 42
+          "Oltre 60 km": 43
         },
         "45-54": {
           "Meno di 5 km": 21,
-          "5-10 km": 30,
-          "10-20 km": 32,
+          "5-10 km": 31,
+          "10-20 km": 33,
           "20-40 km": 46,
           "Oltre 40 km": 42,
           "Oltre 60 km": 52
