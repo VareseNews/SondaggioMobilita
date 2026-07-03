@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-03 20:20 UTC",
-  "total": 811,
+  "generated_at": "2026-07-03 22:12 UTC",
+  "total": 814,
   "small_sample_threshold": 15,
   "ages": [
     "Under 25",
@@ -14,8 +14,8 @@
     "Under 25": 31,
     "25-34": 99,
     "35-44": 166,
-    "45-54": 236,
-    "55-64": 227,
+    "45-54": 237,
+    "55-64": 229,
     "Over 65": 52
   },
   "charts": [
@@ -54,14 +54,14 @@
         },
         "45-54": {
           "Sì, in un comune vicino": 70,
-          "Sì, fuori provincia": 58,
+          "Sì, fuori provincia": 59,
           "Sì, in un'altra zona della provincia": 48,
           "No": 27,
           "Sì, in Svizzera": 33
         },
         "55-64": {
           "Sì, in un comune vicino": 62,
-          "Sì, fuori provincia": 45,
+          "Sì, fuori provincia": 47,
           "Sì, in un'altra zona della provincia": 49,
           "No": 52,
           "Sì, in Svizzera": 19
@@ -126,7 +126,7 @@
         },
         "45-54": {
           "Automobile": 111,
-          "Treno": 49,
+          "Treno": 50,
           "Bicicletta": 36,
           "Moto/scooter": 10,
           "Bicicletta elettrica": 12,
@@ -137,7 +137,7 @@
         },
         "55-64": {
           "Automobile": 109,
-          "Treno": 30,
+          "Treno": 32,
           "Bicicletta": 44,
           "Moto/scooter": 10,
           "Bicicletta elettrica": 7,
@@ -203,7 +203,7 @@
         "45-54": {
           "Traffico": 90,
           "Sicurezza stradale": 54,
-          "Ritardo dei treni": 43,
+          "Ritardo dei treni": 44,
           "Nessun problema rilevante": 35,
           "Mancanza di collegamenti": 6,
           "Costi elevati": 8,
@@ -212,7 +212,7 @@
         "55-64": {
           "Traffico": 89,
           "Sicurezza stradale": 48,
-          "Ritardo dei treni": 36,
+          "Ritardo dei treni": 38,
           "Nessun problema rilevante": 31,
           "Mancanza di collegamenti": 11,
           "Costi elevati": 6,
@@ -263,15 +263,15 @@
           "Più di 5 giorni": 16
         },
         "45-54": {
-          "1-2 giorni": 9,
+          "1-2 giorni": 10,
           "3 giorni": 33,
           "4 giorni": 35,
           "5 giorni": 130,
           "Più di 5 giorni": 29
         },
         "55-64": {
-          "1-2 giorni": 11,
-          "3 giorni": 26,
+          "1-2 giorni": 12,
+          "3 giorni": 27,
           "4 giorni": 29,
           "5 giorni": 137,
           "Più di 5 giorni": 24
@@ -323,14 +323,14 @@
           "15-30 minuti": 61,
           "30-45 minuti": 37,
           "45-60 minuti": 33,
-          "Oltre 60 minuti": 55
+          "Oltre 60 minuti": 56
         },
         "55-64": {
           "Meno di 15 minuti": 43,
           "15-30 minuti": 77,
           "30-45 minuti": 33,
           "45-60 minuti": 32,
-          "Oltre 60 minuti": 42
+          "Oltre 60 minuti": 44
         },
         "Over 65": {
           "Meno di 15 minuti": 21,
@@ -384,7 +384,7 @@
           "10-20 km": 34,
           "20-40 km": 49,
           "Oltre 40 km": 43,
-          "Oltre 60 km": 56
+          "Oltre 60 km": 57
         },
         "55-64": {
           "Meno di 5 km": 29,
@@ -392,7 +392,7 @@
           "10-20 km": 41,
           "20-40 km": 46,
           "Oltre 40 km": 41,
-          "Oltre 60 km": 45
+          "Oltre 60 km": 47
         },
         "Over 65": {
           "Meno di 5 km": 10,
