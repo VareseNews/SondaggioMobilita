@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-06 13:57 UTC",
-  "total": 826,
+  "generated_at": "2026-07-06 17:10 UTC",
+  "total": 827,
   "small_sample_threshold": 15,
   "ages": [
     "Under 25",
@@ -12,7 +12,7 @@
   ],
   "age_count": {
     "Under 25": 31,
-    "25-34": 99,
+    "25-34": 100,
     "35-44": 168,
     "45-54": 239,
     "55-64": 236,
@@ -39,7 +39,7 @@
           "Sì, in Svizzera": 0
         },
         "25-34": {
-          "Sì, fuori provincia": 25,
+          "Sì, fuori provincia": 26,
           "Sì, in un comune vicino": 19,
           "Sì, in un'altra zona della provincia": 23,
           "No": 17,
@@ -104,7 +104,7 @@
         },
         "25-34": {
           "Automobile": 50,
-          "Treno": 28,
+          "Treno": 29,
           "Bicicletta": 10,
           "Moto/scooter": 1,
           "Bicicletta elettrica": 2,
@@ -185,7 +185,7 @@
         "25-34": {
           "Traffico": 35,
           "Sicurezza stradale": 15,
-          "Ritardo dei treni": 20,
+          "Ritardo dei treni": 21,
           "Nessun problema rilevante": 11,
           "Mancanza di collegamenti": 9,
           "Costi elevati": 8,
@@ -252,7 +252,7 @@
           "1-2 giorni": 3,
           "3 giorni": 18,
           "4 giorni": 14,
-          "5 giorni": 55,
+          "5 giorni": 56,
           "Più di 5 giorni": 9
         },
         "35-44": {
@@ -309,7 +309,7 @@
           "15-30 minuti": 25,
           "30-45 minuti": 14,
           "45-60 minuti": 18,
-          "Oltre 60 minuti": 25
+          "Oltre 60 minuti": 26
         },
         "35-44": {
           "Meno di 15 minuti": 26,
@@ -368,7 +368,7 @@
           "10-20 km": 14,
           "20-40 km": 24,
           "Oltre 40 km": 16,
-          "Oltre 60 km": 26
+          "Oltre 60 km": 27
         },
         "35-44": {
           "Meno di 5 km": 13,
