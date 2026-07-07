@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-07 18:10 UTC",
-  "total": 828,
+  "generated_at": "2026-07-07 20:55 UTC",
+  "total": 829,
   "small_sample_threshold": 15,
   "ages": [
     "Under 25",
@@ -12,7 +12,7 @@
   ],
   "age_count": {
     "Under 25": 31,
-    "25-34": 100,
+    "25-34": 101,
     "35-44": 168,
     "45-54": 240,
     "55-64": 236,
@@ -42,7 +42,7 @@
           "Sì, fuori provincia": 26,
           "Sì, in un comune vicino": 19,
           "Sì, in un'altra zona della provincia": 23,
-          "No": 17,
+          "No": 18,
           "Sì, in Svizzera": 15
         },
         "35-44": {
@@ -84,8 +84,8 @@
         "Treno",
         "Bicicletta",
         "Moto/scooter",
-        "Bicicletta elettrica",
         "A piedi",
+        "Bicicletta elettrica",
         "Autobus",
         "Automobile con altre persone",
         "Smart working prevalente"
@@ -96,8 +96,8 @@
           "Treno": 10,
           "Bicicletta": 3,
           "Moto/scooter": 3,
-          "Bicicletta elettrica": 1,
           "A piedi": 0,
+          "Bicicletta elettrica": 1,
           "Autobus": 4,
           "Automobile con altre persone": 0,
           "Smart working prevalente": 0
@@ -107,8 +107,8 @@
           "Treno": 29,
           "Bicicletta": 10,
           "Moto/scooter": 1,
+          "A piedi": 5,
           "Bicicletta elettrica": 2,
-          "A piedi": 4,
           "Autobus": 3,
           "Automobile con altre persone": 1,
           "Smart working prevalente": 0
@@ -118,8 +118,8 @@
           "Treno": 44,
           "Bicicletta": 12,
           "Moto/scooter": 9,
-          "Bicicletta elettrica": 7,
           "A piedi": 7,
+          "Bicicletta elettrica": 7,
           "Autobus": 3,
           "Automobile con altre persone": 0,
           "Smart working prevalente": 0
@@ -129,8 +129,8 @@
           "Treno": 51,
           "Bicicletta": 38,
           "Moto/scooter": 10,
-          "Bicicletta elettrica": 12,
           "A piedi": 7,
+          "Bicicletta elettrica": 12,
           "Autobus": 4,
           "Automobile con altre persone": 3,
           "Smart working prevalente": 1
@@ -140,8 +140,8 @@
           "Treno": 34,
           "Bicicletta": 44,
           "Moto/scooter": 10,
-          "Bicicletta elettrica": 7,
           "A piedi": 8,
+          "Bicicletta elettrica": 7,
           "Autobus": 9,
           "Automobile con altre persone": 6,
           "Smart working prevalente": 1
@@ -151,8 +151,8 @@
           "Treno": 6,
           "Bicicletta": 12,
           "Moto/scooter": 4,
-          "Bicicletta elettrica": 2,
           "A piedi": 4,
+          "Bicicletta elettrica": 2,
           "Autobus": 1,
           "Automobile con altre persone": 1,
           "Smart working prevalente": 1
@@ -186,7 +186,7 @@
           "Traffico": 35,
           "Sicurezza stradale": 15,
           "Ritardo dei treni": 21,
-          "Nessun problema rilevante": 11,
+          "Nessun problema rilevante": 12,
           "Mancanza di collegamenti": 9,
           "Costi elevati": 8,
           "Ritardi degli autobus": 1
@@ -252,7 +252,7 @@
           "1-2 giorni": 3,
           "3 giorni": 18,
           "4 giorni": 14,
-          "5 giorni": 56,
+          "5 giorni": 57,
           "Più di 5 giorni": 9
         },
         "35-44": {
@@ -305,7 +305,7 @@
           "Oltre 60 minuti": 8
         },
         "25-34": {
-          "Meno di 15 minuti": 17,
+          "Meno di 15 minuti": 18,
           "15-30 minuti": 25,
           "30-45 minuti": 14,
           "45-60 minuti": 18,
@@ -363,7 +363,7 @@
           "Oltre 60 km": 9
         },
         "25-34": {
-          "Meno di 5 km": 9,
+          "Meno di 5 km": 10,
           "5-10 km": 10,
           "10-20 km": 14,
           "20-40 km": 24,
